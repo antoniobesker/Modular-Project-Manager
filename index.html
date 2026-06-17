@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dynamic Project Manager</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap"
+    rel="stylesheet"
+  >
+
+  <link href="styles.css" rel="stylesheet">
+  <link href="src/input.css" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body class="flex">
+  <div id="landing">
+      <h1 class="text-4xl font-bold mb-6">
+        Projects Overview
+      </h1>
+
+      <div class="row-scroll">
+        
+        <!-- Tile -->
+        <div class="tile-base scrolltile">
+          <button class="project-btn">First</button>
+        </div>
+        <!-- Tile -->
+        <div class="tile-base scrolltile">
+          <button class="project-btn">Second</button>
+        </div>
+
+        <!-- Tile -->
+        <div class="tile-base scrolltile">
+          <button class="project-btn">Third</button>
+        </div>
+
+        <!-- Tile -->
+        <div class="tile-base scrolltile">
+          <button class="project-btn">Fourth</button>
+        </div>
+      </div>
+  </div>  
+
+  <div id="dashboard">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <button id="toggleBtn" class="p-2 m-2">></button>
+
+      <div class="node-container">
+        <a href="index.html" class="node">
+          Overview
+        </a>
+      </div>
+
+      <div class="node-container">
+        <a href="fantasy.html" class="node">
+          Fantasy RPG
+        </a>
+      </div>
+
+      <div class="node-container">
+        <p class="node">
+          Sci-Fi Strategy
+        </p>
+      </div>
+
+      <div class="node-container">
+        <p class="node">
+          Life Sim
+        </p>
+      </div>
+
+      <div class="node-container">
+        <a href="workout.html" class="node">
+          Workout
+        </a>
+      </div>
+
+      <div class="node-container">
+        <p class="node">
+          Untitled
+        </p>
+      </div>
+
+      <!-- Dynamic Boards List -->
+      <!--
+      <ul id="boards-list" class="list-none grow overflow-auto">
+      </ul>
+
+      <div id="sidebar-controls" class="mt-auto flex gap-2 p-2 border-t border-zinc-800">
+
+        <button
+          onclick="editSelected()"
+          class="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-white transition"
+        >
+          Edit
+        </button>
+
+        <button
+          onclick="deleteSelected()"
+          class="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-white transition"
+        >
+          Delete
+        </button>
+
+        <button
+          onclick="createBoard(prompt('Board name?'))"
+          class="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-white transition"
+        >
+          Add Board
+        </button>
+
+      </div>
+      -->
+
+    </aside>
+
+    <!-- Main Area -->
+    <div id="main-area" class="flex-1 overflow-hidden">
+
+      <main id="main" class="p-6 overflow-y-auto">
+        <button class="project-btn-close">
+          <h1 class="text-4xl font-bold mb-6">
+            Projects Overview
+          </h1>
+        </button>
+
+        <!-- Side Scroll Tabs-->
+
+        <hr class="linebreak">
+        <section class="mb-10">
+
+          <div class="row-scroll">
+            
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Movie Gallery</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">3D Printing</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">NPC Manager</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Sketches</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+
+            <!-- Tile -->
+            <div class="scrolltile">
+                <p class="text-xl font-semibold">Alchemy</p>
+            </div>
+          </div>
+        
+        </section>
+
+        <!-- Trello Section -->
+
+        <hr class="linebreak">
+        <section class="mb-10 p-6">
+          
+            <div class="collapsible">
+              <button class="section-menu" aria-label="Section options">
+              ⋯
+              </button>   
+              <button class="collapsible-title text-4xl font-bold">
+                Progress Tracker
+              </button>
+          
+            <div class="collapsible-content">
+              <hr class="linebreak">
+              <div class="row-scroll flex overflow-x-auto pb-4">
+              <!-- Column -->
+              <div class="column">
+
+                <div class="header mb-4">
+                  <p class="text-xl font-semibold">
+                    Ideas
+                  </p>
+                </div>
+
+                <div class="column-cards flex flex-col gap-3">
+
+                  <div class="card">
+                    <p>A</p>
+                  </div>
+
+                  <div class="card">
+                    <p>B</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Column -->
+              <div class="column">
+
+                <div class="header mb-4">
+                  <p class="text-xl font-semibold">
+                    Current
+                  </p>
+                </div>
+
+                <div class="column-cards flex flex-col gap-3">
+
+                  <div class="card">
+                    <p>C</p>
+                  </div>
+
+                  <div class="card">
+                    <p>D</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Column -->
+              
+              <div class="column">
+
+                <div class="header mb-4">
+                  <p class="text-xl font-semibold">
+                    Finished
+                  </p>
+                </div>
+
+                <div class="column-cards flex flex-col gap-3">
+
+                  <div class="card">
+                    <p>G</p>
+                  </div>
+
+                  <div class="card">
+                    <p>H</p>
+                  </div>
+
+                </div>
+                
+              </div>
+
+              <!-- Column -->
+              
+              <div class="column">
+
+                <div class="header mb-4">
+                  <p class="text-xl font-semibold">
+                    Paused
+                  </p>
+                </div>
+
+                <div class="column-cards flex flex-col gap-3">
+
+                  <div class="card">
+                    <p>J</p>
+                  </div>
+
+                  <div class="card">
+                    <p>K</p>
+                  </div>
+
+                </div>
+                
+              </div>
+
+              <!-- Column -->
+              
+              <div class="column">
+
+                <div class="header mb-4">
+                  <p class="text-xl font-semibold">
+                    Archive
+                  </p>
+                </div>
+
+                <div class="column-cards flex flex-col gap-3">
+
+                  <div class="card">
+                    <p>E</p>
+                  </div>
+
+                  <div class="card">
+                    <p>F</p>
+                  </div>
+
+                </div>
+                
+              </div>
+            </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- About Section -->
+
+        <hr class="linebreak">
+        <section class="mb-10 p-6">
+          <div class="collapsible">
+            <button class="section-menu" aria-label="Section options">
+            ⋯
+            </button>   
+            <button class="collapsible-title text-4xl font-bold mb-6">
+              Notes
+            </button>
+            <div class="collapsible-content">
+              <hr class="linebreak">
+              <p class="mb-4">
+                From here you can leave updates and information for yourself and others.
+              </p>
+
+              <p class="mb-3 font-semibold">
+                Key projects include:
+              </p>
+
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Pixel Art Fantasy RPG Game</li>
+                <li>Sci Fi Tactical Space Sim Game</li>
+                <li>Pixel Art Life Sim Game</li>
+                <li>Business Tracking Node Management Sim</li>
+                <li>
+                  Immersive NPC Generator with faction hierarchy and branching
+                  (Units, Squads, Battalions)
+                </li>
+                <li>Job Portfolio / Command Center for jobs</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Timeline Section -->
+
+        <hr class="linebreak">
+        <section class="timeline">
+          <div class="row-scroll">
+
+            <!-- Tile -->
+            <div class="tile-base tile">
+
+              <div class="content">
+                <p class="text-xl font-semibold">Title</p>
+
+                <p class="">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s.
+                </p>
+              </div>
+
+              <button class="mt-auto transition px-4 py-2 rounded-lg">
+                Accept
+              </button>
+
+            </div>
+
+            <!-- Tile -->
+            <div class="tile-base tile">
+
+              <div class="content space-y-3">
+                <p class="text-xl font-semibold">Title</p>
+                <p class="">Description</p>
+              </div>
+
+              <button class="mt-auto transition px-4 py-2 rounded-lg">
+                Accept
+              </button>
+
+            </div>
+
+            <!-- Tile -->
+            <div class="tile-base tile">
+
+              <div class="content space-y-3">
+                <p class="text-xl font-semibold">Title</p>
+                <p class="">Description</p>
+              </div>
+
+              <button class="mt-auto transition px-4 py-2 rounded-lg">
+                Accept
+              </button>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Misc Section -->
+        <hr class="linebreak">
+        <section class="misc p-6">
+
+          <h2 class="text-2xl font-bold mb-4">
+            Create a proof of concept in 1 week
+          </h2>
+
+          <p class="">
+            Draw some concepts for characters, locations and potential gameplay loops
+          </p>
+
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>

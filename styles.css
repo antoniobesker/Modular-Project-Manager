@@ -1,0 +1,403 @@
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+
+  --text: #0f172a;
+  --text-muted: #475569;
+
+  --border: #d4dbe5;
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+}
+
+.dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-2: #273449;
+
+  --text: #e5e7eb;
+  --text-muted: #94a3b8;
+
+  --border: #334155;
+
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+}
+
+/* ---------- Global ---------- */
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#main {
+  gap: 10px;
+}
+
+section {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.linebreak {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.header {
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ---------- Navigation Nodes ---------- */
+
+.node {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 12px;
+
+  color: var(--text);
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.node:hover {
+  background-color: var(--primary-hover);
+  color: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.node.active {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ---------- Layout ---------- */
+
+.row-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
+}
+
+.column {
+  max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px;
+}
+
+.column-cards {
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Shared Tile Base ---------- */
+
+.tile-base {
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tile-base:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  flex-shrink: 0;
+
+  width: 220px;
+  height: 160px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  cursor: grab;
+
+  transition: all 0.2s ease;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+/* ---------- Standard Tile ---------- */
+
+.tile {
+  width: 300px;
+  height: 350px;
+
+  background: var(--primary);
+  color: var(--bg);
+
+  border: 1px solid transparent;
+
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tile:hover {
+  background: var(--primary-hover);
+}
+
+.tile p {
+  overflow-x: auto;
+}
+
+.tile button {
+  margin-top: auto;
+}
+
+/* ---------- Show Tile ---------- */
+
+.showtile {
+  width: 220px;
+  height: 350px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showtile:hover {
+  background: var(--surface-2);
+}
+
+/* ---------- Scroll Tile ---------- */
+
+.scrolltile {
+  flex-shrink: 0;
+
+  min-width: 100px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid var(--border);
+
+  transition: all 0.2s ease;
+}
+
+.scrolltile:hover {
+  background: var(--text);
+  color: var(--bg);
+  padding: 5px;
+}
+
+#landing .scrolltile {
+  height: 60px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* ---------- Landing ---------- */
+
+#landing {
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+#landing button {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#dashboard {
+  display: none;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  width: 200px;
+  min-width: 140px;
+
+  height: 100dvh;
+  overflow-y: auto;
+
+  background: var(--surface);
+
+  padding: 1rem;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar.collapsed {
+  width: 90px;
+  min-width: 90px;
+}
+
+.sidebar.collapsed #toggleBtn {
+  color: var(--border);
+}
+
+.sidebar #toggleBtn:hover {
+  color: var(--border);
+  background-color: var(--primary-hover);
+  border-radius: 12px;
+}
+
+.sidebar-text {
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .node {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* ---------- Utility ---------- */
+
+.wrap {
+  display: flex;
+  align-items: center;
+}
+
+hr {
+  flex: 1;
+  height: 2px;
+  color: var(--border);
+}
+
+.title {
+  padding-right: 10px;
+}
+
+/* ---------- Collapsible Sections ---------- */
+
+.collapsible {
+  position: relative;
+}
+
+.collapsible-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transition:
+    max-height 0.6s ease,
+    opacity 0.5s ease;
+}
+
+.collapsible-content.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* ---------- Section Menu ---------- */
+
+.section-menu {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+
+  color: var(--text-muted);
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+
+  opacity: 0;
+
+  transition: all 0.2s ease;
+}
+
+.collapsible:hover .section-menu {
+  opacity: 1;
+}
+
+.section-menu:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
