@@ -19,15 +19,15 @@ document.querySelectorAll(".collapsible-title").forEach(title => {
 
 document.querySelectorAll(".project-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.getElementById("landing").style.display = "none";
-    document.getElementById("dashboard").style.display = "flex";
+    document.getElementById("landing").classList.add("hidden");
+    document.getElementById("dashboard").classList.add("active");
   });
 });
 
 document.querySelectorAll(".project-btn-close").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.getElementById("landing").style.display = "flex";
-    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("landing").classList.add("active");
+    document.getElementById("dashboard").classList.add("hidden");
   });
 });
 
