@@ -420,8 +420,7 @@ hr {
     flex-direction: column;
     width: 100% ;
   }
-  #toggleBtn,
-  .project-btn-close {
+  #toggleBtn {
     display: none;
   }
   .sidebar {
@@ -430,15 +429,6 @@ hr {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px;
-  }
-  .sidebar.collapsed {
-    width: auto;
-  }
-  .sidebar.collapsed .node {
-    opacity: 0;
-    width: auto;
-    overflow: hidden;
   }
   .row-scroll {
     display: flex;
